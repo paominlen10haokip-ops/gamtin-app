@@ -1,0 +1,48 @@
+﻿
+> nexttemp@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 34.1s
+  Running TypeScript ...
+node.exe : Failed to compile.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Faile 
+   d to compile.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+./app/notifications/page.tsx:63:55
+Type error: Type '{ title: string; showBack: true; 
+showBell: boolean; }' is not assignable to type 
+'IntrinsicAttributes & TopHeaderProps'.
+  Property 'showBell' does not exist on type 
+'IntrinsicAttributes & TopHeaderProps'.
+
+[0m [90m 61 |[39m     [36mreturn[39m (
+ [90m 62 |[39m         [33m<[39m[33m>[39m
+[31m[1m>[22m[39m[90m 63 |[39m             
+[33m<[39m[33mTopHeader[39m 
+title[33m=[39m[32m"Notifications"[39m showBack 
+showBell[33m=[39m{[36mfalse[39m} 
+[33m/[39m[33m>[39m
+ [90m    |[39m                                   
+                    [31m[1m^[22m[39m
+ [90m 64 |[39m             
+[33m<[39m[33mdiv[39m style[33m=[39m{{ 
+padding[33m:[39m [32m'8px 0'[39m }}[33m>[39m
+ [90m 65 |[39m                 
+{notifications[33m.[39mmap(n [33m=>[39m (
+ [90m 66 |[39m                     
+[33m<[39m[33mdiv[39m 
+key[33m=[39m{n[33m.[39mid} 
+style[33m=[39m{{[0m
+Next.js build worker exited with code: 1 and 
+signal: null

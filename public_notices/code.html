@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d442",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102215",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-background-dark overflow-hidden border-x border-slate-200 dark:border-slate-800 shadow-xl">
+<!-- Header Section -->
+<header class="sticky top-0 z-20 bg-white dark:bg-background-dark/95 backdrop-blur-sm border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center px-4 py-4 gap-4">
+<button class="flex items-center justify-center p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Public Notices</h1>
+</div>
+<!-- Search Bar -->
+<div class="px-4 pb-4">
+<div class="relative flex items-center group">
+<span class="material-symbols-outlined absolute left-3 text-slate-400 dark:text-slate-500 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800/50 border-none rounded-xl py-3 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 placeholder-slate-400 dark:placeholder-slate-500" placeholder="Search announcements..." type="text"/>
+</div>
+</div>
+<!-- Category Filter Chips -->
+<div class="flex gap-2 px-4 pb-4 overflow-x-auto no-scrollbar">
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-primary text-slate-900 text-xs font-semibold">All</button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Official</button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Emergency</button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Utilities</button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Events</button>
+</div>
+</header>
+<!-- Main Content (Scrollable List) -->
+<main class="flex-1 overflow-y-auto bg-slate-50 dark:bg-background-dark/50 p-4 space-y-4">
+<!-- Notice Card 1 (High Priority/Emergency) -->
+<div class="bg-white dark:bg-slate-800/40 rounded-xl overflow-hidden shadow-sm border border-red-100 dark:border-red-900/30">
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">warning</span> Emergency
+                        </span>
+<span class="text-[11px] text-slate-400 dark:text-slate-500">2 hours ago</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug mb-2">Water Supply Interruption: Zenhang Lamka</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4">
+                        Please be informed that water supply will be suspended in Zenhang Lamka due to urgent main pipe repairs at the central hub. Work is expected to be completed by 6 PM today.
+                    </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">water_drop</span>
+</div>
+<span class="text-xs font-medium text-slate-500">Public Health Dept</span>
+</div>
+<button class="text-primary text-xs font-bold flex items-center hover:underline">
+                            Read More <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notice Card 2 (Official) -->
+<div class="bg-white dark:bg-slate-800/40 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="h-40 w-full bg-slate-200 relative overflow-hidden" data-alt="Churachandpur administrative building in daylight">
+<img alt="Official Announcement" class="w-full h-full object-cover" data-alt="Official government announcement banner with official seal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOEAxIBaeW64jszm1V4fDq3fOrPJ7dq29eyMUiOm5mf7WY76w82FRAKPBRoK0O9Xx-kbx0vIf5EHf_-kbNY9GZxOuXqm8agyHslUHfk1qq2HHkXyPK3yWPMSKydPEP2LX5p-IgemyAz8PFWFnoxzVxcsdu4ch745J9VQvaWuOEGl9YoLByRZHom_uOhJKVWNXxeWbn7wtLMm4Hq3RSWKSwY2NwiSNIaNdxf-JfXFus_1rU7-oDnQFcDvCBssPzXTqxwhd3kItZptg"/>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary-dark dark:text-primary text-[10px] font-bold uppercase tracking-wider">Official</span>
+<span class="text-[11px] text-slate-400 dark:text-slate-500">Yesterday</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug mb-2">Annual Town Hall Meeting 2024</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4">
+                        The District Administration invites all community leaders and residents to the Annual Town Hall meeting to discuss infrastructure development and local budgeting.
+                    </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">account_balance</span>
+</div>
+<span class="text-xs font-medium text-slate-500">DC Office, CCPur</span>
+</div>
+<button class="text-primary text-xs font-bold flex items-center hover:underline">
+                            Details <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notice Card 3 (Events) -->
+<div class="bg-white dark:bg-slate-800/40 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-wider">Events</span>
+<span class="text-[11px] text-slate-400 dark:text-slate-500">Nov 15, 2023</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug mb-2">Community Football Final</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4">
+                        Don't miss the thrilling final match of the Inter-Village Football Tournament this Saturday at the Public Ground. Gates open at 2 PM.
+                    </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">sports_soccer</span>
+</div>
+<span class="text-xs font-medium text-slate-500">Sports Committee</span>
+</div>
+<button class="text-primary text-xs font-bold flex items-center hover:underline">
+                            RSVP <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="h-10"></div> <!-- Spacer for scroll -->
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="sticky bottom-0 bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800 px-2 pb-4 pt-2">
+<div class="flex justify-around items-center">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">campaign</span>
+<span class="text-[10px] font-medium">Notices</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined">report</span>
+<span class="text-[10px] font-medium">Report</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[10px] font-medium">Market</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</div>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

@@ -1,0 +1,126 @@
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+  }
+  .container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+  h1 { color: #11d442; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+  h2 { color: #2c3e50; margin-top: 30px; border-left: 4px solid #11d442; padding-left: 15px; }
+  h3 { color: #444; margin-top: 20px; }
+  .token-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+  }
+  .token-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+  }
+  .color-swatch {
+    width: 100%;
+    height: 40px;
+    background-color: #11d442;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 8px; }
+  code {
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #888;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Developer Handoff: Gamtin</h1>
+    <p>This document outlines the technical specifications, design tokens, and screen inventory for the Gamtin community platform for Churachandpur, Manipur.</p>
+
+    <h2>Project Overview</h2>
+    <p>Gamtin is a mobile-first community hub serving as a central point for information, communication, and local services.</p>
+
+    <h2>Design Tokens</h2>
+    <div class="token-grid">
+      <div class="token-card">
+        <h3>Primary Color</h3>
+        <div class="color-swatch"></div>
+        <code>#11d442</code>
+      </div>
+      <div class="token-card">
+        <h3>Typography</h3>
+        <p>Inter (Sans-serif)</p>
+        <code>Weights: 400, 600, 700</code>
+      </div>
+      <div class="token-card">
+        <h3>Border Radius</h3>
+        <p>8px (Round Eight)</p>
+      </div>
+      <div class="token-card">
+        <h3>Grid System</h3>
+        <p>4px / 8px baseline</p>
+      </div>
+    </div>
+
+    <h2>Screen Inventory</h2>
+    <h3>Communication & News</h3>
+    <ul>
+      <li><strong>Home:</strong> Main dashboard with feature access.</li>
+      <li><strong>Public Notices:</strong> Official community announcements.</li>
+      <li><strong>Community Hub:</strong> User-generated discussions and forums.</li>
+      <li><strong>News Feed:</strong> Curated local news and weather updates.</li>
+      <li><strong>Notifications:</strong> Centralized alert management.</li>
+    </ul>
+
+    <h3>Local Services</h3>
+    <ul>
+      <li><strong>Town Directory:</strong> Listings for Hospitals, Schools, Hotels, etc.</li>
+      <li><strong>Marketplace:</strong> Local and regular item listings for trade.</li>
+      <li><strong>Job Alerts:</strong> Employment opportunities in Churachandpur.</li>
+      <li><strong>Taxi Booking:</strong> Local transport hailing interface.</li>
+    </ul>
+
+    <h3>Account & Support</h3>
+    <ul>
+      <li><strong>Profile & Settings:</strong> Personal user data and app preferences.</li>
+      <li><strong>Search:</strong> Global search across all platform modules.</li>
+      <li><strong>About Us / Contact Us:</strong> Platform info and support channels.</li>
+      <li><strong>FAQ:</strong> Self-service help center.</li>
+    </ul>
+
+    <h2>Technical Requirements</h2>
+    <ul>
+      <li><strong>Mobile First:</strong> Optimized for mobile viewports.</li>
+      <li><strong>Global Navigation:</strong> Consistent bottom navigation bar.</li>
+      <li><strong>Interactions:</strong> Modal-based search, accordion FAQs, and tab-based filtering.</li>
+    </ul>
+
+    <div class="footer">
+      Generated for Gamtin Development Team &bull; 2026
+    </div>
+  </div>
+</body>
+</html>

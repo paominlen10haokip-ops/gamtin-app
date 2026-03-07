@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ─── Design Tokens (Glassmorphic Dark Theme) ────────────────────────────── */
+:root {
+  /* Soft warm accent colors inspired by the reference */
+  --green-primary: #10b981;
+  /* Vibrant Emerald Green for CTA */
+  --green-light: rgba(16, 185, 129, 0.15);
+  --green-dark: #059669;
+
+  --rust-accent: #f97316;
+  --rust-light: rgba(249, 115, 22, 0.15);
+
+  --ochre-accent: #f59e0b;
+  --ochre-light: rgba(245, 158, 11, 0.15);
+
+  /* Neutrals & Backgrounds */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.4);
+
+  /* The background will be a gradient applied to the shell */
+  --bg-page: transparent;
+  --bg-card: rgba(255, 255, 255, 0.08);
+  --bg-nav: rgba(20, 20, 20, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+
+  /* Status Colors (Softened for dark theme) */
+  --red-alert: #ef4444;
+  --orange-badge: #f59e0b;
+  --blue-badge: #3b82f6;
+
+  --nav-height: 64px;
+
+  /* STITCH Border Radius (ROUND_EIGHT) */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* STITCH Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.2);
+  --shadow-nav: 0 -4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Reset & Base ───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  color: var(--text-primary);
+  /* Dark earthy gradient inspired by the reference device */
+  background: radial-gradient(circle at top right, #3d3b33, #1c1c1a 60%, #111110);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section-title {
+  font-family: var(--font-inter), sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  color: white;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* ─── Mobile Shell ───────────────────────────────────────── */
+.shell {
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Scrollable Page Content ────────────────────────────── */
+.page {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: var(--nav-height);
+  scrollbar-width: none;
+}
+
+.page::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Utility ────────────────────────────────────────────── */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.gap-3 {
+  gap: 12px;
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-sm {
+  font-size: 13px;
+}
+
+.text-xs {
+  font-size: 11px;
+}
+
+.text-green {
+  color: var(--green-primary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Search Bar ─────────────────────────────────────────── */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-full);
+  padding: 12px 18px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.search-bar svg {
+  flex-shrink: 0;
+  stroke: var(--text-muted);
+}
+
+/* ─── Filter Chips ───────────────────────────────────────── */
+.chips {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip.active {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* ─── Card (Glassmorphism) ───────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* ─── Primary Button ─────────────────────────────────────── */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+/* ─── Badge Labels ───────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  backdrop-filter: blur(4px);
+}
+
+.badge-green {
+  background: rgba(17, 212, 66, 0.15);
+  color: #4ade80;
+  border-color: rgba(17, 212, 66, 0.2);
+}
+
+.badge-red {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.badge-orange {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.badge-blue {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* ─── Section Header ─────────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.see-all {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ─── Inline Stat Row ────────────────────────────────────── */
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.stat-row span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

@@ -1,0 +1,46 @@
+﻿
+> nexttemp@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 15.5s
+  Running TypeScript ...
+node.exe : Failed to compile.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Faile 
+   d to compile.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+./app/taxi/page.tsx:555:44
+Type error: Object literal may only specify known 
+properties, and 'px' does not exist in type 
+'Properties<string | number, string & {}>'.
+
+[0m [90m 553 |[39m
+ [90m 554 |[39m             {[90m/* Tabs 
+*/[39m}
+[31m[1m>[22m[39m[90m 555 |[39m             
+[33m<[39m[33mdiv[39m style[33m=[39m{{ 
+display[33m:[39m [32m'flex'[39m[33m,[39m 
+px[33m:[39m [32m'20px'[39m[33m,[39m 
+borderBottom[33m:[39m [32m'1px solid 
+var(--border)'[39m }}[33m>[39m
+ [90m     |[39m                                  
+          [31m[1m^[22m[39m
+ [90m 556 |[39m                 
+[33m<[39m[33mbutton[39m
+ [90m 557 |[39m                     
+onClick[33m=[39m{() [33m=>[39m 
+setTab([32m'completed'[39m)}
+ [90m 558 |[39m                     
+style[33m=[39m{{[0m
+Next.js build worker exited with code: 1 and 
+signal: null
