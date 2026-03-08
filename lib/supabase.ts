@@ -1,9 +1,16 @@
 import { createBrowserClient } from '@supabase/ssr';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey);
+// Fail-safe for build time: Create the client only if keys are present
+export const supabase = (supabaseUrl && supabaseAnonKey)
+    ? createBrowserClient(supabaseUrl, supabaseAnonKey)
+    : null as any; // Fallback to null (cast to any for backward compatibility in imports)
+
+if (!supabaseUrl || !supabaseAnonKey) {
+    console.warn('⚠️ Supabase environment variables are missing. Check your .env or Vercel settings.');
+}
 
 // ─── Type definitions ─────────────────────────────────────────────────────────
 
