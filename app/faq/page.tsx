@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import TopHeader from '../../components/TopHeader';
+import TopHeader from '@/components/TopHeader';
 
 const faqs = [
     {

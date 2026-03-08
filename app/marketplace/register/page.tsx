@@ -18,7 +18,7 @@ import {
     ArrowLeft
 } from 'lucide-react';
 import Link from 'next/link';
-import TopHeader from '../../../components/TopHeader';
+import TopHeader from '@/components/TopHeader';
 import { supabase } from '../../../lib/supabase';
 import { useAuth } from '../../../components/AuthProvider';
 

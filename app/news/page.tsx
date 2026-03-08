@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { supabase, NewsItem } from '../../lib/supabase';
-import { useAuth } from '../../components/AuthProvider';
-import ShareButton from '../../components/ShareButton';
+import { supabase, NewsItem } from '@/lib/supabase';
+import { useAuth } from '@/components/AuthProvider';
+import ShareButton from '@/components/ShareButton';
 
 const tabs = ['All News', 'Local News', 'Weather', 'Events', 'Jobs'];
 

@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import TopHeader from '../../components/TopHeader';
+import TopHeader from '@/components/TopHeader';
 
 export default function ContactPage() {
     const [name, setName] = useState('');

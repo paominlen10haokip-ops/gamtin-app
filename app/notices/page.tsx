@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import TopHeader from '../../components/TopHeader';
+import TopHeader from '@/components/TopHeader';
 import { supabase, Notice } from '../../lib/supabase';
 
 const typeClassMap: Record<string, string> = {

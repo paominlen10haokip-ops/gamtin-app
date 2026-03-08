@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import TopHeader from '../../components/TopHeader';
-import { supabase, CommunityPost } from '../../lib/supabase';
-import { useAuth } from '../../components/AuthProvider';
-import ShareButton from '../../components/ShareButton';
+import TopHeader from '@/components/TopHeader';
+import { supabase, CommunityPost } from '@/lib/supabase';
+import { useAuth } from '@/components/AuthProvider';
+import ShareButton from '@/components/ShareButton';
 import { useSidebar } from '../../components/LayoutWrapper';
 
 const formatDate = (dateString: string) => {
