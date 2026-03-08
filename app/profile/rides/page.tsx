@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import TopHeader from '../../../components/TopHeader';
+import TopHeader from '@/components/TopHeader';
 import { supabase, TaxiBooking } from '../../../lib/supabase';
 import { useAuth } from '../../../components/AuthProvider';
 

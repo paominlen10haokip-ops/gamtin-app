@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import TopHeader from '../../components/TopHeader';
+import TopHeader from '@/components/TopHeader';
 import { useSidebar } from '../../components/LayoutWrapper';
 import {
     ArrowLeft,
