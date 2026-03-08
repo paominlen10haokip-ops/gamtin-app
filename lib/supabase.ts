@@ -3,13 +3,18 @@ import { createBrowserClient } from '@supabase/ssr';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-// Fail-safe for build time: Create the client only if keys are present
-export const supabase = (supabaseUrl && supabaseAnonKey)
-    ? createBrowserClient(supabaseUrl, supabaseAnonKey)
-    : null as any; // Fallback to null (cast to any for backward compatibility in imports)
+// Use placeholders during build-time (server-side) to prevent prerendering crashes
+// if environment variables are not yet configured in the deployment platform.
+const isServer = typeof window === 'undefined';
+const effectiveUrl = supabaseUrl || (isServer ? 'https://placeholder.supabase.co' : '');
+const effectiveKey = supabaseAnonKey || (isServer ? 'placeholder' : '');
+
+export const supabase = createBrowserClient(effectiveUrl, effectiveKey);
 
 if (!supabaseUrl || !supabaseAnonKey) {
-    console.warn('⚠️ Supabase environment variables are missing. Check your .env or Vercel settings.');
+    if (isServer) {
+        console.warn('⚠️ [Build Time] Supabase environment variables are missing. Using placeholders to allow build to finish. Please double check your Vercel project settings.');
+    }
 }
 
 // ─── Type definitions ─────────────────────────────────────────────────────────
