@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import './globals.css';
-import BottomNavBar from '../components/BottomNavBar';
 import { AuthProvider } from '../components/AuthProvider';
 import LayoutWrapper from '../components/LayoutWrapper';
 
@@ -19,7 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AuthProvider>
           <LayoutWrapper>
             {children}
-            <BottomNavBar />
           </LayoutWrapper>
         </AuthProvider>
       </body>

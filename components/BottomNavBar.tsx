@@ -61,7 +61,7 @@ export default function BottomNavBar() {
             left: '50%',
             transform: 'translateX(-50%)',
             width: '100%',
-            maxWidth: '430px',
+            maxWidth: '1000px',
             height: 'var(--nav-height)',
             background: 'rgba(20, 20, 20, 0.6)',
             backdropFilter: 'blur(16px)',

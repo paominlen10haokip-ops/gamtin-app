@@ -2,6 +2,7 @@
 
 import React, { useState, createContext, useContext } from 'react';
 import Sidebar from './Sidebar';
+import BottomNavBar from './BottomNavBar';
 import { usePathname } from 'next/navigation';
 import { useAuth } from './AuthProvider';
 import { supabase } from '../lib/supabase';
@@ -31,10 +32,13 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
                 }}
             />
 
-            <div className="shell">
-                <main className="page">
-                    {children}
-                </main>
+            <div className="app-container">
+                <BottomNavBar />
+                <div className="shell">
+                    <main className="page">
+                        {children}
+                    </main>
+                </div>
             </div>
         </SidebarContext.Provider>
     );
