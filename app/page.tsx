@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { supabase, NewsItem } from '../lib/supabase';
 import ShareButton from '../components/ShareButton';
 import { useSidebar } from '../components/LayoutWrapper';
@@ -97,18 +98,34 @@ export default function HomePage() {
         <div ref={heroRef} className="hero-web" style={{ margin: '0 16px' }}>
           <div className="hero-web-bg" />
           <div className="hero-web-content">
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 16, background: 'rgba(0,0,0,0.3)', padding: '6px 16px', borderRadius: 20, border: '1px solid rgba(255,255,255,0.1)' }}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 16, background: 'rgba(0,0,0,0.3)', padding: '6px 16px', borderRadius: 20, border: '1px solid rgba(255,255,255,0.1)' }}>
               <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#11d442', boxShadow: '0 0 10px #11d442', animation: 'blink 2s ease-in-out infinite' }} />
               <span style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.8)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Live Community</span>
-            </div>
-            <h1 className="hero-web-title">
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="hero-web-title">
               {greeting()},{'\n'}
               <span style={{ color: '#4ade80' }}>Churachandpur</span> 🏔️
-            </h1>
-            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 28, maxWidth: 500, marginInline: 'auto' }}>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 28, maxWidth: 500, marginInline: 'auto' }}>
               Your digital town square. Discover local news, job opportunities, connect with businesses, and find reliable taxi services all in one place.
-            </p>
-            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/search" className="btn-primary" style={{ width: 'auto' }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
                 Search anything
@@ -116,8 +133,38 @@ export default function HomePage() {
               <Link href="/marketplace" className="btn-outline" style={{ width: 'auto' }}>
                 Browse Marketplace
               </Link>
-            </div>
+            </motion.div>
           </div>
+        </div>
+
+        {/* ══ SPONSORED ADS / PROMOTIONS ═════════════════════════════ */}
+        <div style={{ margin: '16px 16px 0' }}>
+          <motion.div
+            whileHover={{ scale: 1.01 }}
+            style={{
+              background: 'linear-gradient(90deg, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.15) 100%)',
+              border: '1px solid rgba(236,72,153,0.3)',
+              borderRadius: 20,
+              padding: '16px 20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              cursor: 'pointer'
+            }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+              <div style={{ width: 40, height: 40, borderRadius: 12, background: 'linear-gradient(135deg, #ec4899, #a855f7)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>
+                📢
+              </div>
+              <div>
+                <div style={{ fontSize: 10, fontWeight: 800, color: '#fbcfe8', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 2 }}>Advertisement</div>
+                <h3 style={{ fontSize: 15, fontWeight: 700, color: 'white' }}>50% Off at Kuki Store!</h3>
+                <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)' }}>Get your winter clothes before stock ends.</p>
+              </div>
+            </div>
+            <div style={{ fontSize: 12, fontWeight: 800, color: 'white', background: 'rgba(255,255,255,0.2)', padding: '6px 12px', borderRadius: 99 }}>
+              Shop Now
+            </div>
+          </motion.div>
         </div>
 
         {/* ══ PROMOTIONS / LOCAL BUSINESSES ═════════════════════════════ */}

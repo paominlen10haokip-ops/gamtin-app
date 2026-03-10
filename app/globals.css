@@ -609,24 +609,18 @@ textarea::placeholder {
 
 .promotions-section {
   display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-@media (min-width: 768px) {
+@media (max-width: 480px) {
   .promotions-section {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
-  .promotions-section {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .promo-card {
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   position: relative;
   background: rgba(255, 255, 255, 0.05);
@@ -640,15 +634,15 @@ textarea::placeholder {
 }
 
 .promo-image {
-  height: 160px;
+  height: 120px;
   width: 100%;
   background: #111;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
+  font-size: 32px;
 }
 
 .promo-content {
-  padding: 20px;
+  padding: 16px;
 }

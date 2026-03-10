@@ -209,7 +209,7 @@ const MarketplacePage = () => {
             </div>
 
             {/* Product Grid */}
-            <div style={{ padding: '0 20px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div style={{ padding: '0 20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: '12px' }}>
                 {currentItems.map((item) => (
                     <motion.div
                         key={item.id}
@@ -258,14 +258,14 @@ const MarketplacePage = () => {
                                 <Heart size={16} fill={item.isFavorite ? '#ef4444' : 'none'} />
                             </button>
                         </div>
-                        <div style={{ padding: '12px' }}>
-                            <h3 style={{ fontSize: '14px', fontWeight: 600, marginBottom: '4px' }} className="truncate">
+                        <div style={{ padding: '10px' }}>
+                            <h3 style={{ fontSize: '13px', fontWeight: 600, marginBottom: '2px' }} className="truncate">
                                 {item.title}
                             </h3>
-                            <div style={{ fontSize: '16px', fontWeight: 700, color: 'var(--green-primary)', marginBottom: '8px' }}>
+                            <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--green-primary)', marginBottom: '6px' }}>
                                 ₹{item.price}
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '10px', color: 'var(--text-muted)' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '9px', color: 'var(--text-muted)' }}>
                                 <MapPin size={10} />
                                 <span className="truncate">{item.location}</span>
                             </div>
