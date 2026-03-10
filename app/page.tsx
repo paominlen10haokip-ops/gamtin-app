@@ -91,77 +91,65 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ══ STICKY HEADER ══════════════════════════════════════ */}
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '14px 18px',
-        background: 'rgba(10,12,10,0.75)',
-        backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
-        position: 'sticky', top: 0, zIndex: 50,
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <button onClick={openSidebar} style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', gap: 4.5, cursor: 'pointer', padding: 4 }}>
-            {[0, 1, 2].map(i => (
-              <span key={i} style={{ display: 'block', width: i === 1 ? 14 : 20, height: 2, background: 'white', borderRadius: 2, transition: 'width 0.2s' }} />
-            ))}
-          </button>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ width: 34, height: 34, background: 'linear-gradient(135deg,#064e3b,#11d442)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, boxShadow: '0 0 12px rgba(17,212,66,0.35)' }}>🌿</div>
-            <span style={{ fontWeight: 900, fontSize: 19, letterSpacing: '-0.5px', color: 'white' }}>Gamtin</span>
-          </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <Link href="/search" style={{ display: 'flex', alignItems: 'center', color: 'rgba(255,255,255,0.7)' }}>
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </Link>
-          <Link href="/notifications" style={{ display: 'flex', alignItems: 'center', color: 'rgba(255,255,255,0.7)', position: 'relative' }}>
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-            {/* Unread dot */}
-            <span style={{ position: 'absolute', top: 1, right: 1, width: 7, height: 7, borderRadius: '50%', background: '#11d442', boxShadow: '0 0 6px #11d442', border: '1.5px solid #0a0c0a' }} />
-          </Link>
-        </div>
-      </div>
-
-      <div style={{ paddingBottom: 90 }}>
+      <div style={{ paddingBottom: 90, paddingTop: 16 }}>
 
         {/* ══ HERO ══════════════════════════════════════════════ */}
-        <div ref={heroRef} style={{ margin: '16px 16px 0', position: 'relative', borderRadius: 28, overflow: 'hidden' }}>
-          {/* animated gradient bg */}
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(135deg,#022c22 0%,#064e3b 40%,#0a4923 70%,#14532d 100%)',
-            animation: 'heroPulse 8s ease-in-out infinite alternate',
-          }} />
-          {/* floating orbs */}
-          <div style={{ position: 'absolute', top: -30, right: -20, width: 160, height: 160, borderRadius: '50%', background: 'radial-gradient(circle,rgba(17,212,66,0.2) 0%,transparent 70%)', animation: 'floatOrb 6s ease-in-out infinite' }} />
-          <div style={{ position: 'absolute', bottom: -20, left: 20, width: 100, height: 100, borderRadius: '50%', background: 'radial-gradient(circle,rgba(17,212,66,0.12) 0%,transparent 70%)', animation: 'floatOrb 8s ease-in-out infinite reverse' }} />
-          <div style={{ position: 'relative', zIndex: 1, padding: '28px 22px 26px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+        <div ref={heroRef} className="hero-web" style={{ margin: '0 16px' }}>
+          <div className="hero-web-bg" />
+          <div className="hero-web-content">
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 16, background: 'rgba(0,0,0,0.3)', padding: '6px 16px', borderRadius: 20, border: '1px solid rgba(255,255,255,0.1)' }}>
               <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#11d442', boxShadow: '0 0 10px #11d442', animation: 'blink 2s ease-in-out infinite' }} />
-              <span style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Live Community</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.8)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Live Community</span>
             </div>
-            <h1 style={{ fontWeight: 900, fontSize: 24, color: 'white', lineHeight: 1.25, marginBottom: 8, letterSpacing: '-0.5px' }}>
+            <h1 className="hero-web-title">
               {greeting()},{'\n'}
               <span style={{ color: '#4ade80' }}>Churachandpur</span> 🏔️
             </h1>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, marginBottom: 20 }}>
-              Your local hub — news, jobs, rides & more, all in one place.
+            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 28, maxWidth: 500, marginInline: 'auto' }}>
+              Your digital town square. Discover local news, job opportunities, connect with businesses, and find reliable taxi services all in one place.
             </p>
-            <Link href="/search" style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255,255,255,0.2)', borderRadius: 50,
-              padding: '10px 20px', fontSize: 13, fontWeight: 600, color: 'white',
-              transition: 'all 0.2s',
-            }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
-              Search anything…
-            </Link>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/search" className="btn-primary" style={{ width: 'auto' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+                Search anything
+              </Link>
+              <Link href="/marketplace" className="btn-outline" style={{ width: 'auto' }}>
+                Browse Marketplace
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* ══ PROMOTIONS / LOCAL BUSINESSES ═════════════════════════════ */}
+        <div style={{ margin: '32px 16px 16px' }}>
+          <div className="section-header">
+            <h2 className="section-title">Local Promotions & Events</h2>
+          </div>
+          <div className="promotions-section">
+            <div className="promo-card">
+              <div className="promo-image" style={{ background: 'linear-gradient(135deg, #78350f, #92400e)' }}>🎊</div>
+              <div className="promo-content">
+                <div className="badge badge-orange" style={{ marginBottom: 8 }}>Special Event</div>
+                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>Winter Carnival 2024</h3>
+                <p style={{ fontSize: 14, color: 'var(--text-secondary)' }}>Join us for the biggest local festival featuring live music, food stalls, and games.</p>
+              </div>
+            </div>
+            <div className="promo-card">
+              <div className="promo-image" style={{ background: 'linear-gradient(135deg, #064e3b, #059669)' }}>🛍️</div>
+              <div className="promo-content">
+                <div className="badge badge-green" style={{ marginBottom: 8 }}>Sale</div>
+                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>Highland Handlooms</h3>
+                <p style={{ fontSize: 14, color: 'var(--text-secondary)' }}>Get 20% off on all traditional wears and accessories this weekend.</p>
+              </div>
+            </div>
+            <div className="promo-card">
+              <div className="promo-image" style={{ background: 'linear-gradient(135deg, #1e3a8a, #3b82f6)' }}>🚕</div>
+              <div className="promo-content">
+                <div className="badge badge-blue" style={{ marginBottom: 8 }}>Service</div>
+                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 4 }}>City Cab Service Rides</h3>
+                <p style={{ fontSize: 14, color: 'var(--text-secondary)' }}>New routes added for inter-district travel. Book in advance for a discount.</p>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -353,3 +353,302 @@ textarea::placeholder {
   align-items: center;
   gap: 6px;
 }
+
+/* ─── Top Navigation Bar (Tribal Aesthetic) ───────────────────────── */
+.top-nav-bar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(10, 12, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tribal-border {
+  height: 4px;
+  width: 100%;
+  background: repeating-linear-gradient(45deg,
+      #10b981,
+      #10b981 10px,
+      #059669 10px,
+      #059669 20px,
+      #f59e0b 20px,
+      #f59e0b 30px,
+      #f97316 30px,
+      #f97316 40px);
+}
+
+.top-nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger-line {
+  display: block;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+.hamburger-btn:hover .hamburger-line {
+  width: 22px !important;
+  background: var(--green-primary);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #064e3b, #11d442);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 0 16px rgba(17, 212, 66, 0.3);
+}
+
+.logo-text {
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+.nav-center {
+  display: none;
+  /* hidden on small screens */
+  align-items: center;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .nav-center {
+    display: flex;
+  }
+}
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--green-primary);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-link {
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.icon-link:hover {
+  color: white;
+}
+
+.relative-icon {
+  position: relative;
+}
+
+.unread-dot {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #11d442;
+  box-shadow: 0 0 8px #11d442;
+  border: 1.5px solid #0a0c0a;
+}
+
+.profile-btn {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--green-primary);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.profile-btn:hover {
+  background: rgba(16, 185, 129, 0.25);
+  color: white;
+}
+
+.mobile-nav-scroll {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  padding: 12px 16px;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
+  scrollbar-width: none;
+}
+
+.mobile-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-nav-scroll {
+    display: none;
+  }
+
+  .shell .page {
+    padding-bottom: 24px;
+  }
+}
+
+.mobile-nav-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.mobile-nav-link.active {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--green-primary);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* ─── Hero Section & Website Styles ───────────────────────── */
+.hero-web {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.hero-web-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #022c22 0%, #064e3b 40%, #0a4923 70%, #14532d 100%);
+  animation: heroPulse 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.hero-web-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero-web-title {
+  font-weight: 900;
+  font-size: 42px;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+@media (max-width: 768px) {
+  .hero-web-title {
+    font-size: 32px;
+  }
+}
+
+.promotions-section {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .promotions-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .promotions-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.promo-card {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.promo-image {
+  height: 160px;
+  width: 100%;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.promo-content {
+  padding: 20px;
+}
