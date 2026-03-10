@@ -96,9 +96,10 @@ textarea::placeholder {
   color: var(--text-muted);
 }
 
-/* ─── Mobile Shell ───────────────────────────────────────── */
+/* ─── Web App Shell ───────────────────────────────────────── */
 .shell {
-  max-width: 430px;
+  max-width: 1000px;
+  width: 100%;
   min-height: 100dvh;
   margin: 0 auto;
   position: relative;

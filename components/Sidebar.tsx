@@ -96,36 +96,71 @@ const Sidebar = ({ isOpen, onClose, user, onLogout }: SidebarProps) => {
                         </div>
 
                         {/* Profile Section */}
-                        <div style={{
-                            background: 'rgba(255,255,255,0.05)',
-                            borderRadius: '16px',
-                            padding: '16px',
-                            marginBottom: '32px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '12px',
-                            border: '1px solid rgba(255,255,255,0.05)'
-                        }}>
+                        {user ? (
                             <div style={{
-                                width: 48,
-                                height: 48,
-                                borderRadius: '50%',
-                                background: 'var(--green-primary)',
+                                background: 'rgba(255,255,255,0.05)',
+                                borderRadius: '16px',
+                                padding: '16px',
+                                marginBottom: '32px',
                                 display: 'flex',
                                 alignItems: 'center',
-                                justifyContent: 'center'
+                                gap: '12px',
+                                border: '1px solid rgba(255,255,255,0.05)'
                             }}>
-                                <User size={24} color="#111" />
-                            </div>
-                            <div style={{ overflow: 'hidden' }}>
-                                <div style={{ fontWeight: 600, fontSize: '15px' }} className="truncate">
-                                    {user?.email?.split('@')[0] || 'Guest User'}
+                                <div style={{
+                                    width: 48,
+                                    height: 48,
+                                    borderRadius: '50%',
+                                    background: 'var(--green-primary)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <User size={24} color="#111" />
                                 </div>
-                                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }} className="truncate">
-                                    {user?.email || 'Sign in to sync data'}
+                                <div style={{ overflow: 'hidden' }}>
+                                    <div style={{ fontWeight: 600, fontSize: '15px' }} className="truncate">
+                                        {user.email?.split('@')[0]}
+                                    </div>
+                                    <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }} className="truncate">
+                                        {user.email}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        ) : (
+                            <Link href="/auth" onClick={onClose} style={{
+                                background: 'rgba(16, 185, 129, 0.1)',
+                                borderRadius: '16px',
+                                padding: '16px',
+                                marginBottom: '32px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '12px',
+                                border: '1px solid rgba(16, 185, 129, 0.2)',
+                                textDecoration: 'none',
+                                color: 'white'
+                            }}>
+                                <div style={{
+                                    width: 48,
+                                    height: 48,
+                                    borderRadius: '50%',
+                                    background: 'rgba(255,255,255,0.1)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <User size={24} color="rgba(255,255,255,0.5)" />
+                                </div>
+                                <div style={{ overflow: 'hidden' }}>
+                                    <div style={{ fontWeight: 700, fontSize: '15px', color: 'var(--green-primary)' }} className="truncate">
+                                        Sign In / Register
+                                    </div>
+                                    <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }} className="truncate">
+                                        Create an account to join
+                                    </div>
+                                </div>
+                            </Link>
+                        )}
 
                         {/* Navigation Links */}
                         <div style={{ flex: 1, overflowY: 'auto' }}>
@@ -161,25 +196,27 @@ const Sidebar = ({ isOpen, onClose, user, onLogout }: SidebarProps) => {
 
                         {/* Footer / Logout */}
                         <div style={{ marginTop: 'auto', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-                            <button
-                                onClick={onLogout}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '12px',
-                                    padding: '12px 16px',
-                                    borderRadius: '12px',
-                                    fontSize: '15px',
-                                    color: '#ff4444',
-                                    background: 'none',
-                                    border: 'none',
-                                    width: '100%',
-                                    cursor: 'pointer'
-                                }}
-                            >
-                                <LogOut size={20} />
-                                Logout
-                            </button>
+                            {user && (
+                                <button
+                                    onClick={onLogout}
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '12px',
+                                        padding: '12px 16px',
+                                        borderRadius: '12px',
+                                        fontSize: '15px',
+                                        color: '#ff4444',
+                                        background: 'none',
+                                        border: 'none',
+                                        width: '100%',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    <LogOut size={20} />
+                                    Logout
+                                </button>
+                            )}
                             <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.3)', textAlign: 'center', marginTop: '16px' }}>
                                 Gamtin v1.0.4 • Made for Churachandpur
                             </div>

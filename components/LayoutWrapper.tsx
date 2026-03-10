@@ -3,6 +3,8 @@
 import React, { useState, createContext, useContext } from 'react';
 import Sidebar from './Sidebar';
 import { usePathname } from 'next/navigation';
+import { useAuth } from './AuthProvider';
+import { supabase } from '../lib/supabase';
 
 export const SidebarContext = createContext<{ openSidebar: () => void }>({ openSidebar: () => { } });
 
@@ -15,13 +17,16 @@ interface LayoutWrapperProps {
 const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const pathname = usePathname();
+    const { user } = useAuth();
 
     return (
         <SidebarContext.Provider value={{ openSidebar: () => setIsSidebarOpen(true) }}>
             <Sidebar
                 isOpen={isSidebarOpen}
                 onClose={() => setIsSidebarOpen(false)}
-                onLogout={() => {
+                user={user}
+                onLogout={async () => {
+                    await supabase.auth.signOut();
                     setIsSidebarOpen(false);
                 }}
             />
