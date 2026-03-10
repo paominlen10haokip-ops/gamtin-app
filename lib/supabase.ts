@@ -80,6 +80,10 @@ export type Job = {
     company_color: string;
     location: string;
     job_type: string;
+    category: string;
+    description: string;
+    salary_range: string;
+    requirements: string;
     emoji: string;
     emoji_bg: string;
     cta: string;
